@@ -7,7 +7,6 @@ export default function Home() {
   const [savings, setSavings] = useState(0);
 
   const calculate = () => {
-    // AI typically automates 40% of admin tasks
     const monthly = (hours * rate * 0.4) * 4;
     setSavings(monthly);
   };
@@ -19,102 +18,106 @@ export default function Home() {
         <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
           AryanAI
         </div>
-        <div className="hidden md:block text-sm text-gray-400">
-          Helping Local Businesses Automate & Scale
+        <div className="text-sm text-gray-400 border border-slate-700 px-3 py-1 rounded-full bg-slate-800/50">
+          2026 AI Automation Agency
         </div>
       </nav>
 
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto px-6 py-12 text-center">
         <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
-          Stop Wasting <span className="text-blue-500">Hours</span> on Manual Tasks.
+          Stop Wasting <span className="text-blue-500">Hours</span> on Manual Work.
         </h1>
-        <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
-          Use my custom-built calculator to see exactly how much money your business is losing by not using AI.
+        <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+          I build custom AI systems that automate your emails, social media, and scheduling. Calculate your savings below.
         </p>
 
         {/* Calculator Card */}
-        <div className="bg-slate-800/50 border border-slate-700 p-8 rounded-3xl shadow-2xl backdrop-blur-sm max-w-xl mx-auto">
+        <div className="bg-slate-800/50 border border-slate-700 p-8 rounded-3xl shadow-2xl backdrop-blur-sm max-w-xl mx-auto mb-20">
           <div className="space-y-6 text-left">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Weekly Admin Hours (Emails, Scheduling, Content)</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2 font-mono">STEP 1: Weekly Admin Hours</label>
               <input 
                 type="number" 
-                placeholder="e.g. 15"
+                placeholder="e.g. 20"
                 onChange={(e) => setHours(Number(e.target.value))}
-                className="w-full p-4 rounded-xl bg-slate-900 border border-slate-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
+                className="w-full p-4 rounded-xl bg-slate-900 border border-slate-600 focus:border-blue-500 outline-none"
               />
             </div>
-
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Staff Hourly Rate ($)</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2 font-mono">STEP 2: Your Hourly Rate ($)</label>
               <input 
                 type="number" 
-                placeholder="e.g. 25"
+                placeholder="e.g. 50"
                 onChange={(e) => setRate(Number(e.target.value))}
-                className="w-full p-4 rounded-xl bg-slate-900 border border-slate-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
+                className="w-full p-4 rounded-xl bg-slate-900 border border-slate-600 focus:border-blue-500 outline-none"
               />
             </div>
-
             <button 
               onClick={calculate}
-              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-500/20 transition-all active:scale-95"
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl shadow-lg transition-all"
             >
-              Calculate My Potential Savings
+              Calculate My Savings
             </button>
           </div>
 
           {savings > 0 && (
-            <div className="mt-8 p-6 bg-blue-500/10 border border-blue-500/50 rounded-2xl animate-pulse">
-              <h2 className="text-blue-400 font-semibold mb-1">Estimated Monthly Savings:</h2>
-              <p className="text-5xl font-black text-white">${savings.toFixed(0)}</p>
+            <div className="mt-8 p-6 bg-blue-500/10 border border-blue-500/50 rounded-2xl">
+              <h2 className="text-blue-400 font-semibold mb-1">Monthly Savings Potential:</h2>
+              <p className="text-5xl font-black text-white tracking-tighter">${savings.toFixed(0)}</p>
             </div>
           )}
         </div>
-      </section>
 
-      {/* The Offer Section */}
-      <section className="max-w-5xl mx-auto px-6 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">The "AI Starter Pack" Setup</h2>
-          <p className="text-gray-400">I will personally set up your business with 3 AI systems for a flat $50.</p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: "AI Content Engine", desc: "Automate your social media posts and property descriptions in seconds." },
-            { title: "Smart Inbox", desc: "Set up AI templates to answer customer inquiries while you sleep." },
-            { title: "Meeting Automator", desc: "Record and summarize every client call into a 1-page action plan." }
-          ].map((item, i) => (
-            <div key={i} className="p-6 bg-slate-800/30 border border-slate-700 rounded-2xl">
-              <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 text-blue-400 font-bold">
-                {i + 1}
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Final CTA */}
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-cyan-500 p-1 rounded-3xl">
-          <div className="bg-[#0f172a] rounded-[22px] p-10 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to save ${savings > 0 ? savings.toFixed(0) : '1,000'}+ per month?</h2>
-            <p className="text-gray-400 mb-8">Limited Time Offer: Full Setup for only $50 (Usually $250)</p>
+        {/* Professional Lead Form */}
+        <div className="bg-gradient-to-b from-blue-600 to-blue-800 p-[1px] rounded-3xl max-w-lg mx-auto overflow-hidden">
+          <div className="bg-[#0f172a] p-10 rounded-[23px]">
+            <h2 className="text-3xl font-bold mb-2">Claim Your AI Setup</h2>
+            <p className="text-gray-400 mb-8 text-sm leading-relaxed">
+              Ready to save that ${savings > 0 ? savings.toFixed(0) : '1,000'}+? Fill this out and I will personally reach out to start your setup.
+            </p>
             
-            <button 
-              onClick={() => window.location.href='mailto:legendhcs700@gmail.com?subject=AI Setup Inquiry'}
-              className="bg-white text-blue-600 hover:bg-gray-100 font-extrabold py-4 px-10 rounded-full text-lg shadow-xl transition-all"
+            <form 
+              action="https://formspree.io/f/xeeojqkl" 
+              method="POST"
+              className="space-y-4 text-left"
             >
-              Get Started for $50
-            </button>
-            <p className="mt-4 text-xs text-gray-500 italic">Only 3 slots available this week.</p>
+              <input 
+                type="text" 
+                name="name" 
+                placeholder="Full Name" 
+                required 
+                className="w-full p-4 rounded-xl bg-slate-900 border border-slate-700 outline-none focus:border-blue-500"
+              />
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Business Email" 
+                required 
+                className="w-full p-4 rounded-xl bg-slate-900 border border-slate-700 outline-none focus:border-blue-500"
+              />
+              <textarea 
+                name="message" 
+                placeholder="What is the most boring task you do every day?" 
+                className="w-full p-4 rounded-xl bg-slate-900 border border-slate-700 outline-none focus:border-blue-500"
+                rows="3"
+              ></textarea>
+              <button 
+                type="submit"
+                className="w-full bg-white text-blue-900 font-black py-4 rounded-xl text-lg hover:bg-gray-100 transition-all shadow-xl shadow-white/5"
+              >
+                REQUEST SETUP ($50)
+              </button>
+              <p className="text-center text-[10px] text-gray-500 uppercase tracking-widest mt-4">
+                Limited to 3 slots this week
+              </p>
+            </form>
           </div>
         </div>
       </section>
 
-      <footer className="py-10 text-center border-t border-slate-800 text-gray-600 text-sm">
-        © 2026 AryanAI Agency • Built with Next.js
+      <footer className="py-20 text-center border-t border-slate-800 text-gray-600 text-xs">
+        © 2026 AryanAI Agency • Leading the local business automation revolution.
       </footer>
     </main>
   );
