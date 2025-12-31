@@ -100,7 +100,7 @@ export default function Home() {
                 name="message" 
                 placeholder="What is the most boring task you do every day?" 
                 className="w-full p-4 rounded-xl bg-slate-900 border border-slate-700 outline-none focus:border-blue-500"
-                rows="3"
+                rows={3}
               ></textarea>
               <button 
                 type="submit"
